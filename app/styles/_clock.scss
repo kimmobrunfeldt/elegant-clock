@@ -1,0 +1,50 @@
+@import "compass/css3/border-radius";
+
+// Clock variables
+$clock-color: #444;
+$pointer-width: 2px;
+
+.clock-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .clock {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    @include border-radius(50%);
+    border: 2px solid $clock-color;
+
+    .clock-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+
+    .clock-pointer {
+      @extend .clock-center;
+
+      width: $pointer-width;
+      margin-left: -$pointer-width / 2;
+      background: $clock-color;
+      @include border-radius($pointer-width);
+    }
+
+    .clock-hour-pointer {
+      @extend .clock-pointer;
+      height: 20%;
+    }
+
+    .clock-minute-pointer {
+      @extend .clock-pointer;
+      height: 47%;
+    }
+
+    .clock-second-pointer {
+      @extend .clock-pointer;
+      height: 47%;
+    }
+  }
+}

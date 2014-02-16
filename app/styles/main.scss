@@ -4,16 +4,4 @@ body, html, .container {
   margin: 0;
 }
 
-.clock-wrapper {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .clock {
-    width: 80%;
-    min-width: 200px;
-    height: 100px;
-    background: red;
-  }
-}
+@import "clock";
