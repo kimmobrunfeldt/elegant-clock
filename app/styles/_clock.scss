@@ -14,10 +14,10 @@ $center-diameter: 10px;
   justify-content: center;
 
   .clock {
-    width: 300px;
-    height: 300px;
-    min-width: 300px;
-    min-height: 300px;
+    width: 400px;
+    height: 400px;
+    min-width: 150px;
+    min-height: 150px;
     position: relative;
     @include border-radius(50%);
     border: 2px solid $clock-color;
