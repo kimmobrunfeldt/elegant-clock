@@ -19,7 +19,7 @@ angular.module('elegantClockApp')
         var now = moment.unix(time);
 
         var diameter = _.min([$(window).width(), $(window).height()]) - 100;
-        $('.clock').height(diameter).width(diameter);
+        $('.clock').animate({height: diameter, width: diameter});
 
         var hour = parseInt(now.format('h'), 10);
         setHourPointer(hour, animate);
