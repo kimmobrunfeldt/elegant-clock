@@ -2,7 +2,10 @@
 
 // Clock variables
 $clock-color: #444;
-$pointer-width: 2px;
+$hour-pointer-width: 6px;
+$minute-pointer-width: 4px;
+$second-pointer-width: 2px;
+$center-diameter: 10px;
 
 .clock-wrapper {
   height: 100%;
@@ -13,6 +16,8 @@ $pointer-width: 2px;
   .clock {
     width: 300px;
     height: 300px;
+    min-width: 300px;
+    min-height: 300px;
     position: relative;
     @include border-radius(50%);
     border: 2px solid $clock-color;
@@ -23,28 +28,47 @@ $pointer-width: 2px;
       left: 50%;
     }
 
+    .clock-center-dot {
+      @extend .clock-center;
+
+      width: $center-diameter;
+      height: $center-diameter;
+      margin-top: -$center-diameter/2;
+      margin-left: -$center-diameter/2;
+      @include border-radius(50%);
+      background: $clock-color;
+    }
+
     .clock-pointer {
       @extend .clock-center;
 
+      background: $clock-color;
+    }
+
+    // Setup pointer based on its witdh
+    @mixin calculate-pointer-widths($pointer-width) {
       width: $pointer-width;
       margin-left: -$pointer-width / 2;
-      background: $clock-color;
       @include border-radius($pointer-width);
+      transform-origin: $pointer-width/2 0;
     }
 
     .clock-hour-pointer {
       @extend .clock-pointer;
-      height: 20%;
+      height: 30%;
+      @include calculate-pointer-widths($hour-pointer-width);
     }
 
     .clock-minute-pointer {
       @extend .clock-pointer;
       height: 47%;
+      @include calculate-pointer-widths($minute-pointer-width);
     }
 
     .clock-second-pointer {
       @extend .clock-pointer;
       height: 47%;
+      @include calculate-pointer-widths($second-pointer-width);
     }
   }
 }
